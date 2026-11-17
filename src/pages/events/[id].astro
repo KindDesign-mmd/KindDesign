@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Knapper from "../../components/knapper.astro";
+
+export async function getStaticPaths() {
+    const endpoint = "https://vzqoaikgmwzifxuyuspr.supabase.co/rest/v1/Events?select=*";
+    const options = {
+        headers:{
+            apikey: "sb_publishable_u8fLIxFzOZcna2N1rJANuQ_lAXjUlAN"
+        }
+    }
+    
+  const response = await fetch(endpoint, options);
+  const data: any[] = await response.json();
+
+  return data.map((post) => {
+      return {
+          params: { id: post.id.toString() },
+      props: { post },
+    };
+  });
+}
+const { id } = Astro.params;
+const { post } = Astro.props;
+---
+
+<Layout>
+<main>
+    <article>
+        <section>
+            <img src={} alt="event billede">
+            <h2>A</h2>
+            <h3>B</h3>
+            <h4>C</h4>
+        </section>
+
+    <section>
+        <h1> {post.title}</h1>
+        <p>{post.description}</p>
+        <div>
+            <h2></h2>
+            <p></p>
+        </div>
+        <div>
+            <h2></h2>
+            <p></p>
+        </div>
+    </section>
+    <Knapper text="sign up"/>
+    </article>
+
+</main>
+</Layout>
+
+<style>
+
+</style>
