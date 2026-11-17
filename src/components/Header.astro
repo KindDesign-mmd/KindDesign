@@ -1,0 +1,95 @@
+<header class="site-header">
+
+    <nav aria-label="Hovednavigation">
+        <a href="/">HOME</a>
+        <a href="/events">EVENTS</a>
+        <a href="/about">ABOUT</a>
+    </nav>
+
+        <a href="/" class="logo">
+    <img src="/kind-design-logo.svg" alt="Kind Design logo"
+    />
+    </a>
+</header>
+
+<style>
+
+<style>
+  /* MOBILE FIRST */
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100svh;
+    box-sizing: border-box;
+    padding: 36px 5%;
+    background-color: #fff;
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: clamp(14px, 5vw, 46px);
+    width: 100%;
+  }
+
+  nav a {
+    font-family: Arial, sans-serif;
+    font-size: clamp(14px, 3vw, 20px);
+    font-weight: 400;
+    color: #111;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin: 10px;
+  }
+
+  .logo {
+    display: block;
+    width: 100%;
+    max-width: 680px;
+    margin: 55px auto 0;
+  }
+
+  .logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+
+
+
+  
+/* DESKTOP */
+@media (min-width: 900px) {
+  .site-header {
+    position: relative;
+    min-height: 420px;
+    padding: 20px 2%;
+  }
+
+  nav {
+    position: absolute;
+    top: 20px;
+    right: 2%;
+    width: auto;
+    gap: 22px;
+  }
+
+  nav a {
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .logo {
+    width: 55%;
+    max-width: 550px;
+    margin: 60px 0 0 4%;
+  }
+
+  .logo img {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>

@@ -1,0 +1,69 @@
+
+---
+---
+
+<header>
+  <a href="/" class="logo">
+    <img src="/lillelogo.svg" alt="Kind Design logo lille" />
+  </a>
+
+  <nav aria-label="Hovednavigation">
+    <a href="/">HOME</a>
+    <a href="/events">EVENTS</a>
+    <a href="/about">ABOUT</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background-color: white;
+  
+  }
+
+  .logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #1d1d1d;
+    font-family: "Helvetica Neue";
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  nav a:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      padding: 1rem;
+    }
+
+    .logo img {
+      width: 80px;
+    }
+
+    nav {
+      gap: 1rem;
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      text-decoration: underline;
+    }
+  }
+</style>
