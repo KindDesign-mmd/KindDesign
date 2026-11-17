@@ -1,0 +1,82 @@
+<footer class="footer">
+  <img
+    src="/images/footer-wave.svg"
+    alt=""
+    class="footer-wave"
+  />
+
+  <div class="footer-content">
+    <a href="/about" class="about-link">About</a>
+
+    <a href="mailto:kinddesign.cph@gmail.com" class="no-underline">
+      Contact us: kinddesign.cph@gmail.com
+    </a>
+
+    <a
+      href="https://www.instagram.com/kinddesign.cph/" class="no-underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Instagram: KindDesign Instagram
+    </a>
+  </div>
+</footer>
+
+<style>
+
+    body {
+  margin: 0;
+  padding: 0;
+}
+  .footer {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    
+  }
+
+  .footer-wave {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .footer-content {
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .footer-content a {
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16.8px;
+    font-weight: 300;
+    /* text-decoration: none; */
+  }
+
+  .about-link{
+    text-decoration: underline;
+  }
+
+  .no-underline{
+    text-decoration: none;
+  }
+
+  .footer-content a:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 600px){
+    .footer-content a{
+        font-size: 12px;
+    }
+  }
+</style>
