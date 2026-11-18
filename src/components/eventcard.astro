@@ -1,6 +1,8 @@
 
 ---
 const { event } = Astro.props;
+import Knapper from "./knapper.astro";
+
 
 const date = new Date(event.event_date).toLocaleDateString("da-DK", {
   day: "2-digit",
@@ -23,10 +25,12 @@ const endTime = event.end_time?.slice(0, 5);
   </div>
 
   <div class="event-info">
-    <h2>{event.title}</h2>
-    <p>{event.description}</p>
-    <a href="#" class="read-more">Read more</a>
-  </div>
+  <h2>{event.title}</h2>
+  <p>{event.description}</p>
+  
+<Knapper text="Read more" href={`/events/${event.id}`} />
+
+</div>
 </article>
 
 

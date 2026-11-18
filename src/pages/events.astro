@@ -2,6 +2,7 @@
 ---
 import Nav from "../components/nav.astro";
 import EventCard from "../components/eventcard.astro";
+import Footer from "../components/footer.astro";
 
 const endpoint = "https://vzqoaikgmwzifxuyuspr.supabase.co/rest/v1/Events?select=*&order=event_date.desc";
 
@@ -38,6 +39,8 @@ const data = await response.json();
         {data.map((event) => <EventCard {event} />)}
       </section>
     </main>
+
+    <Footer />
   </body>
 </html>
 
@@ -51,14 +54,15 @@ const data = await response.json();
     font-family: Helvetica Neue;
   }
 
-  main {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 4rem 3rem;
-  }
+ main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem 3rem 4rem;
+}
 
   h1 {
     text-align: center;
+    margin-top: 0;
   }
 
   .events {
