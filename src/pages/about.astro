@@ -1,0 +1,433 @@
+
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/nav.astro";
+import Button from "../components/knapper.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>About</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <!-- Hero -->
+      <section class="page-intro">
+        <img
+          src="/images/about-hero.svg"
+          alt=""
+          class="footer-wave"
+        />
+      </section>
+
+      <!-- Intro text -->
+      <section class="intro-copy content-width">
+        <h2>Good things happen<br />when creatives connect.</h2>
+        <p>
+          We believe that creativity grows through collaboration, curiosity and
+          the exchange of ideas. KindDesign brings together people from different
+          creative backgrounds to learn from each other, build connections and
+          explore new perspectives.
+        </p>
+      </section>
+
+      <!-- Who are we? -->
+      <section class="who-section content-width">
+        <span class="decorative-dot" aria-hidden="true"></span>
+
+        <div class="who-image">
+          <img src="images/who-are-we.jpg" alt="The founders of KindDesign talking at an event" />
+        </div>
+
+        <div class="who-copy">
+          <h2>Who are we?</h2>
+          <p>
+            KindDesign was founded by Julia and Jeremy, who shared an interest
+            in design and creativity. Inspired by Julia's solo trip to Lisbon,
+            where she experienced the need for a space to meet like-minded
+            creatives, they created a community in Copenhagen where people can
+            connect, share ideas and inspire one another.
+          </p>
+        </div>
+      </section>
+
+      <!-- Collaboration -->
+      <section class="collaborate-section">
+        <h2>How can we collaborate?</h2>
+
+        <div class="collaboration-grid">
+          <article class="collaboration-card">
+            <div class="card-image">
+              <img src="images/share-knowledge.jpg" alt="A speaker sharing knowledge at a creative event" />
+            </div>
+            <h3>Share your knowledge</h3>
+            <p>
+              Are you a designer, artist or creative professional with something
+              to share? Host a talk, workshop or presentation and inspire others
+              with your experience, ideas and expertise.
+            </p>
+          </article>
+
+          <article class="collaboration-card">
+            <div class="card-image">
+              <img src="images/offer-a-space.jpg" alt="People gathered together at a creative event" />
+            </div>
+            <h3>Offer a space</h3>
+            <p>
+              Have a studio, workspace or venue that could host a creative
+              gathering? Help us create a space where people can meet, exchange
+              ideas and get inspired.
+            </p>
+          </article>
+
+          <article class="collaboration-card">
+            <div class="card-image">
+              <img src="images/host-an-event.jpg" alt="Drinks prepared for a creative community event" />
+            </div>
+            <h3>Host an event</h3>
+            <p>
+              Have an idea for a creative meetup, workshop or event? We'd love
+              to collaborate and bring your idea to life by connecting you with
+              our creative community.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact CTA -->
+      <section class="contact-cta" aria-labelledby="cta-title">
+        <h2 id="cta-title">Let's create something together.</h2>
+
+        <div class="cta-copy">
+          <h3>Have an idea? Let's talk.</h3>
+          <p>
+            Whether you have an idea for a workshop, want to share your
+            knowledge, offer a space, volunteer your time or simply have an idea
+            you'd love to bring to life, we'd love to hear from you. There's no
+            idea too small, and everyone has something to contribute to our
+            community. Let's make something meaningful together.
+          </p>
+
+          <Button
+            text="Get in touch"
+            href="mailto:kinddesign.cph@gmail.com"
+          />
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  :root {
+    --brown: #280d10;
+    --yellow: #ffff9a;
+    --text: #080808;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    color: var(--text);
+    background: #fff;
+    font-family: "Helvetica";
+    font-size: 20px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* Shared content width */
+  .content-width,
+  .collaborate-section,
+  .contact-cta {
+    width: calc(100% - 80px);
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+
+  /* Hero */
+  .page-intro img {
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* Intro text */
+  .intro-copy {
+    margin-top: 83px;
+  }
+
+  .intro-copy h2,
+  .who-copy h2,
+  .collaborate-section > h2 {
+    margin: 0 0 19px;
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+  }
+
+  .intro-copy p,
+  .who-copy p,
+  .collaboration-card p,
+  .cta-copy p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: lighter;
+  }
+
+  /* Who are we? */
+  .who-section {
+    position: relative;
+    display: grid;
+    grid-template-columns: 126px 1fr;
+    gap: 15px;
+    align-items: center;
+    margin-top: 67px;
+  }
+
+  .who-image {
+    width: 126px;
+    height: 198px;
+    overflow: hidden;
+    background: #eee;
+  }
+
+  .who-copy h2 {
+    margin-bottom: 17px;
+  }
+
+  .decorative-dot {
+    position: absolute;
+    top: -27px;
+    right: 0;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background: var(--brown);
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+
+  /* Collaboration */
+  .collaborate-section {
+    margin-top: 108px;
+  }
+
+  .collaborate-section > h2 {
+    margin-bottom: 18px;
+  }
+
+  .collaboration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 1.43 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #eee;
+  }
+
+  .collaboration-card h3 {
+    margin: 18px 4px 16px;
+    color: var(--brown);
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: lighter;
+    letter-spacing: -0.35px;
+  }
+
+  .collaboration-card p {
+    padding: 0 4px;
+    color: #49383a;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  /* Contact CTA */
+  .contact-cta {
+    margin-top: 78px;
+    padding: 35px 45px;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 40px;
+    align-items: start;
+    background: var(--yellow);
+    border-radius: 12px;
+  }
+
+  .contact-cta h2 {
+    margin: 0;
+    color: var(--brown);
+    font-size: 36px;
+    line-height: 1.27;
+    letter-spacing: -0.6px;
+  }
+
+  .cta-copy h3 {
+    margin: 0 0 11px;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: lighter;
+    letter-spacing: -0.4px;
+  }
+
+  .cta-copy p {
+    font-size: 16px;
+    line-height: 1.28;
+    padding-bottom: 1rem;
+  }
+
+  /* Desktop */
+  @media (min-width: 900px) {
+    .who-section {
+      grid-template-columns: 160px 1fr;
+      gap: 22px;
+    }
+
+    .who-image {
+      width: 160px;
+      height: 220px;
+    }
+
+    .collaboration-grid {
+      gap: 38px;
+    }
+
+    .intro-copy p,
+    .who-copy p {
+      max-width: 540px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .page-intro {
+      padding-top: 55px;
+    }
+
+    .intro-copy {
+      margin-top: 65px;
+    }
+
+    .intro-copy h2,
+    .who-copy h2,
+    .collaborate-section > h2 {
+      font-size: 23px;
+    }
+
+    .who-section {
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      margin-top: 58px;
+    }
+
+    .who-image {
+      width: 110px;
+      height: 170px;
+    }
+
+    .who-copy p {
+      font-size: 13px;
+    }
+
+    .decorative-dot {
+      top: -27px;
+      width: 23px;
+      height: 23px;
+    }
+
+    .collaborate-section {
+      margin-top: 82px;
+    }
+
+    .collaboration-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .collaboration-card {
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      column-gap: 16px;
+      align-items: start;
+    }
+
+    .card-image {
+      grid-row: span 2;
+      aspect-ratio: 1 / 1;
+    }
+
+    .collaboration-card h3 {
+      margin: 3px 0 10px;
+      font-size: 18px;
+    }
+
+    .collaboration-card p {
+      padding: 0;
+      font-size: 13px;
+    }
+
+    .contact-cta {
+      margin-top: 65px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 25px 22px;
+    }
+
+    .contact-cta h2 {
+      font-size: 24px;
+      white-space: nowrap;
+    }
+
+    .contact-cta p {
+      font-size: 13px;
+    }
+
+    .cta-copy h3 {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+
+    .content-width,
+    .collaborate-section,
+    .contact-cta {
+      width: calc(100% - 32px);
+    }
+  }
+</style>
