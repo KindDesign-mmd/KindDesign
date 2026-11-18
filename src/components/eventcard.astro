@@ -1,0 +1,146 @@
+
+---
+const { event } = Astro.props;
+
+const date = new Date(event.event_date).toLocaleDateString("da-DK", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
+
+const startTime = event.start_time?.slice(0, 5);
+const endTime = event.end_time?.slice(0, 5);
+---
+
+<article class="event-card">
+  <div class="event-image">
+    <img src={event.img_url} alt={event.title} />
+  </div>
+
+  <div class="event-date">
+    <h3>{date}</h3>
+    <p>{startTime}–{endTime}</p>
+  </div>
+
+  <div class="event-info">
+    <h2>{event.title}</h2>
+    <p>{event.description}</p>
+    <a href="#" class="read-more">Read more</a>
+  </div>
+</article>
+
+
+
+<style>
+  /* Eventets layout */
+  .event-card {
+    display: grid;
+    grid-template-columns: 250px 180px 1fr;
+    column-gap: 2.5rem;
+    align-items: stretch;
+    border-top: 1px solid #34191B;
+  }
+
+  /* Afstand omkring indholdet */
+  .event-image,
+  .event-date,
+  .event-info {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* Billede */
+  .event-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Dato og tidspunkt */
+  .event-date {
+    border-right: 1px solid #34191B;
+    padding-right: 2rem;
+  }
+
+  .event-date h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+  }
+
+  .event-date p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* Titel og beskrivelse */
+  .event-info h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+  }
+
+  .event-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 0 1.5rem;
+  }
+
+  /* Tablet */
+  @media (max-width: 800px) {
+    .event-card {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .event-info {
+      grid-column: 1 / -1;
+    }
+
+    .event-date {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+
+  
+/* Mobil */
+@media (max-width: 600px) {
+  .event-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .event-image,
+  .event-date,
+  .event-info {
+    padding: 0;
+  }
+
+  .event-image {
+    padding-top: 1rem;
+  }
+
+  .event-date {
+    border-right: none;
+  }
+
+  .event-date h3,
+  .event-date p {
+    margin: 0;
+  }
+
+  .event-info {
+    grid-column: auto;
+    padding-bottom: 1rem;
+  }
+
+  .event-info h2 {
+    margin: 0 0 0.5rem;
+  }
+}
+
+</style>
+

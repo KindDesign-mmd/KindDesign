@@ -1,0 +1,80 @@
+
+---
+import Nav from "../components/nav.astro";
+import EventCard from "../components/eventcard.astro";
+
+const endpoint = "https://vzqoaikgmwzifxuyuspr.supabase.co/rest/v1/Events?select=*&order=event_date.desc";
+
+const options = {
+  headers: {
+    apikey: "sb_publishable_u8fLIxFzOZcna2N1rJANuQ_lAXjUlAN"
+  }
+};
+
+const response = await fetch(endpoint, options);
+
+if (!response.ok) {
+  throw new Error("Kunne ikke hente events fra Supabase");
+}
+
+const data = await response.json();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Events</title>
+  </head>
+
+  <body>
+    <Nav />
+
+    <main>
+      <h1><img src="/eventshero.svg" alt="event hero"></h1>
+
+      <section class="events">
+        {data.map((event) => <EventCard {event} />)}
+      </section>
+    </main>
+  </body>
+</html>
+
+
+
+<style>
+  :global(body) {
+    margin: 0;
+    background-color: white;
+    color: #34191B;
+    font-family: Helvetica Neue;
+  }
+
+  main {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .events {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #34191B;
+  }
+
+  @media (max-width: 600px) {
+    main {
+      padding: 2rem 1.25rem;
+    }
+    h1 img{
+width: 80%;
+
+
+    }
+  }
+</style>
