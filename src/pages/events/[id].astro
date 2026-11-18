@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Knapper from "../../components/knapper.astro";
+
+export async function getStaticPaths() {
+    const endpoint = "https://vzqoaikgmwzifxuyuspr.supabase.co/rest/v1/Events?select=*";
+    const options = {
+        headers:{
+            apikey: "sb_publishable_u8fLIxFzOZcna2N1rJANuQ_lAXjUlAN"
+        }
+    }
+    
+  const response = await fetch(endpoint, options);
+  const data: any[] = await response.json();
+
+  return data.map((post) => {
+      return {
+          params: { id: post.id.toString() },
+      props: { post },
+    };
+  });
+}
+const { id } = Astro.params;
+const { post } = Astro.props;
+console.log(post);
+---
+
+
+<Layout>
+  <main>
+    <article class="event">
+
+      <!-- Venstre kolonne -->
+      <section class="event-kort">
+      <img src={post.img_details} alt={post.title} />
+      
+
+        <div class="event-info">
+          <h2>{post.event_date}</h2>
+          <p>{post.start_time} - {post.end_time}</p>
+
+          <div class="adresse">
+            <p>{post.location_name}</p>
+            <p>{post.address}</p>
+            <p>{post.postal_code}</p>
+            <p>{post.country}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Højre kolonne -->
+      <section class="event-indhold">
+        <h1>{post.title}</h1>
+
+        <p>{post.subtitle}</p>
+        <p>{post.description_p}</p>
+
+        <div class="program">
+          <h2>{post.agenda_title}</h2>
+           <p>{post.agenda_description}</p>
+        </div>
+
+        <div class="vaerter">
+          <h2>{post.hosts_title}</h2>
+          <p>{post.hosts_description}</p>
+        </div>
+
+        <Knapper text="Sign up" href="/events" />
+      </section>
+
+    </article>
+  </main>
+</Layout>
+
+
+<style>
+
+  main {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .event {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #777;
+    min-height: 900px;
+    
+  }
+
+  /* VENSTRE KOLONNE */
+
+ .event-kort {
+  background-color: #260B10;
+  color: #FFFFAC;
+  padding: 38px;
+  border-radius: 14px;
+  margin: 38px 60px 0 45px;
+  align-self: start;
+  box-sizing: border-box;
+  min-width: 0;
+
+  transform: scale(0.8);
+  transform-origin: top center;
+}
+
+  .event-kort img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 28px;
+  }
+
+  .event-info h2 {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .event-info p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .event-info > p {
+    font-style: italic;
+  }
+
+  .adresse {
+    margin-top: 32px;
+  }
+
+  .adresse p:last-child {
+    font-weight: 700;
+  }
+
+  /* HØJRE KOLONNE */
+
+  .event-indhold {
+    border-left: 1px solid #777;
+    padding: 25px 45px 60px 30px;
+    min-width: 0;
+  }
+
+  .event-indhold h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    color: #260B10;
+    margin: 0 0 25px;
+  }
+
+  .event-indhold p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0 0 18px;
+    white-space: pre-line;
+  }
+
+  .event-indhold h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #260B10;
+    margin: 0 0 8px;
+  }
+
+  .program {
+    margin-top: 32px;
+  }
+
+  .vaerter {
+    margin-top: 32px;
+    margin-bottom: 28px;
+  }
+</style>
