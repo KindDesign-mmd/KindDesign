@@ -1,10 +1,10 @@
-
+---
+import Knapper from '../components/knapper.astro'
+---
 
 <section class="home-content">
   <h1 class="home-title">
-    Creative community for<br />
-    all kinds of designers,<br />
-    meetups & events
+    Creative community for<br /> all kinds of designers,<br /> meetups & events
   </h1>
 
   <!-- JOIN THE COMMUNITY -->
@@ -22,10 +22,7 @@
         that shares your passion for design.
       </p>
 
-      <a href="/events" class="home-button">
-        <span class="button-circle"></span>
-        Explore events
-      </a>
+      <Knapper text="Explore events" href="/events" />
     </div>
 
     <div class="home-image-wrapper">
@@ -50,10 +47,8 @@
         connect, share ideas, and find inspiration.
       </p>
 
-      <a href="/about" class="home-button">
-        <span class="button-circle"></span>
-        Read more
-      </a>
+          <Knapper text="Read more" href="/about" />
+ 
     </div>
 
     <div class="home-image-wrapper">
@@ -88,10 +83,8 @@
       one, we'd love to hear from you.
     </p>
 
-    <a href="mailto:kinddesign.cph@gmail.com" class="home-button">
-      <span class="button-circle"></span>
-      Get in touch
-    </a>
+    <Knapper text="Get in touch" href="/about" />
+
   </section>
 </section>
 
@@ -493,6 +486,7 @@
   .contact-card .home-button {
     margin: 25px auto 0;
   }
+
 }
 
 
