@@ -1,0 +1,41 @@
+
+---
+const { text, href } = Astro.props;
+---
+
+<a href={href} class="knap">
+  <span class="cirkel"></span>
+  {text}
+</a>
+
+<style>
+  .knap {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #260B10;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+     border: 1px solid #260B10;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  .cirkel {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  .knap:hover {
+  background-color: white;
+  color: #260B10;
+  border-color: #260B10;
+}
+.knap:hover .cirkel {
+  background-color: #260B10;
+}
+
+</style>
